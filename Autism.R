@@ -1,8 +1,12 @@
+# DATA SCIENCE Final
+# Test 1
+
 # Packages
 library(tidyverse)
 library(DAAG)
 install.packages("psych")
 library("psych")
+
 
 #Data Wrangeling
 
