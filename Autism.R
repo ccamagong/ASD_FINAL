@@ -1,6 +1,5 @@
-<<<<<<< HEAD
+
 # DATA SCIENCE Final
-# Test 1
 
 # Packages
 library(tidyverse)
