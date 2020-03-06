@@ -7,7 +7,7 @@ install.packages("psych")
 library("psych")
 
 
-#Data Wrangeling
+#Data Wrangling
 
 ## Check Data Type
 str(Autism_Toddler)
