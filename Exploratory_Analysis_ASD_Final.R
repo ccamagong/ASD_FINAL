@@ -4,9 +4,12 @@
 library("rcompanion")
 library("car")
 library("fastR")
-library(tidyverse)
+library("tidyverse")
 
 # Data us wrangled!
+
+# Test Assumption
+plotNormalHistogram(Autism_ALL$Age)
 
 # Reshape Data
 keeps <- c("toddler_yes.A1", "child_yes.A1", "adolescent_yes.A1", "toddler_yes.A1")
