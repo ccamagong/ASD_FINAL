@@ -1,9 +1,5 @@
-# Exploratory_Analysis_ASD_Final
-# Repeated Measures ANOVA
-# Load Libraries
-# This is to properly wrangle Cristina and Mark's data for a repeated measures ANOVA or ANCOVA
-
-#Trying the gather function: 
+# Analysis_ASD_Final
+# Chi-Squared
 
 ##Load Libraries
 
