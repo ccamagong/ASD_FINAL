@@ -19,38 +19,33 @@ names(asd_adolescent_yes)
 names(asd_adult_yes)
 
 
-### Reorder the toddler columns to look like the rest
+###Drop native indian, pacificia, mixed and Class from toddler
+toddler_raceSubset <- asd_toddler_yes[, c(1:11, 13:20, 24:26)]
+#### Column names need to be the same
+toddler_raceSubsetRenames <- toddler_raceSubset %>% rename( white = white.european)
+names(toddler_raceSubsetRenames)
+child_raceSubsetRenames <- asd_child_yes %>% rename( others = others.)
+adolescent_raceSubsetRenames <- asd_adolescent_yes %>% rename( others = others.)
+adult_raceSubsetRenames <- asd_adult_yes %>% rename( others = others.)
 
-toddler_reordered <- asd_child_yes[,c(1:13, 14, 17, 16, 19, 18,  15, 19, 20, 21, 22, 23, 24)]
-
-###Drop columns that don't match up with toddler
-
-####Drop native indian and pacificia from toddler
-
-toddler_raceSubset <- asd_toddler_yes[, c(1:20, 23, 25, 26)]
-
-#### Drop asian from child, adolescent, adult
-child_raceSubset <-child_reordered[,1:23]
-adolescent_raceSubset <- adolescent_reordered[,1:23]
-adult_raceSubset <- adult_reordered[,1:23]
+### Reorder and drop columns to look like the toddler. 'Class' & 'aboriginal' dropped
+child_reordered <- child_raceSubsetRenames[,c(1:11, 13, 15, 14, 17, 16, 19, 18, 20, 22:24)]
+adolescent_reordered <- adolescent_raceSubsetRenames[, c(1:11, 13, 15, 14, 21, 16, 18, 17, 19, 22:24)]
+adult_reordered <- adult_raceSubsetRenames[, c(1:11, 13, 15, 14, 18, 16, 20, 17, 19, 22:24)]
 
 ### Check to make sure they are now all the same order and number of columns:
 
-names(toddler_raceSubset)
-names(child_raceSubset)
-names(adolescent_raceSubset)
-names(adult_raceSubset)
-
-### Column names need to be the same
-
-toddler_raceSubsetRenames <- toddler_raceSubset %>% rename( white = white.european)
+names(toddler_raceSubsetRenames)
+names(child_reordered)
+names(adolescent_reordered)
+names(adult_reordered)
 
 ### Add a column to each data frame that adds the time frame on there
 
 toddlerTime <- mutate(toddler_raceSubsetRenames, Time = 0)
-childTime <- mutate(child_raceSubset, Time = 1)
-adolescentTime <- mutate(adolescent_raceSubset, Time = 2)
-adultTime <- mutate(adult_raceSubset, Time = 3)
+childTime <- mutate(child_reordered, Time = 1)
+adolescentTime <- mutate(adolescent_reordered, Time = 2)
+adultTime <- mutate(adult_reordered, Time = 3)
 
 ## Combine data one on top of each other!
 
