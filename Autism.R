@@ -28,9 +28,6 @@ Autism_Adolescent <- data.frame(Autism_Adolescent, Autism_Adolescent1)
 Autism_Adult1 <- dummy.code(Autism_Adult$Ethnicity)
 Autism_Adult <- data.frame(Autism_Adult, Autism_Adult1)
 
-Autism_Adult1 <- dummy.code(Autism_Adult$Ethnicity)
-Autism_Adult <- data.frame(Autism_Adult, Autism_Adult1)
-
 Autism_ALL1 <- dummy.code(Autism_ALL$Ethnicity)
 Autism_ALL <- data.frame(Autism_ALL, Autism_ALL1)
 
@@ -107,10 +104,11 @@ Autism_Adolescent <- Autism_Adolescent[-c(12:15)]
 Autism_Adult <- Autism_Adult[-c(12:15)]
 
 ## Create df's to filter 'yes' columns
-toddler_yes <- filter(Autism_Toddler, Class == "YES")
-child_yes <- filter(Autism_Child, Class == "YES")
-adolescent_yes <- filter(Autism_Adolescent, Class == "YES")
-adult_yes <- filter(Autism_Adult, Class == "YES")
+asd_toddler_yes <- filter(Autism_Toddler, Class == "YES")
+write_csv(toddler_yes, "/Users/markzepeda/Desktop/Final Project/R Github Projects/ASD_FINAL/asd_toddler_yes.csv")
+asd_child_yes <- filter(Autism_Child, Class == "YES")
+asd_adolescent_yes <- filter(Autism_Adolescent, Class == "YES")
+asd_adult_yes <- filter(Autism_Adult, Class == "YES")
 asd_all_yes <- filter(Autism_Adult, Class == "YES")
 
-
+dbRemove
